@@ -1,4 +1,5 @@
 body{
+    margin-left: 10%;
     font-family: Helvetica, Arial, sans-serif;
 }
 h2{
@@ -35,6 +36,25 @@ button{
 button:hover{
     background-color: #0E664C;
     cursor: pointer;
+}
+.message-h2{
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: #000;
+    font-family: "Knockout 71 4r", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 28px;
+}
+.message-p{
+    margin-bottom: 8px;
+    width: 650px;
+    color: #626262;
+    font-size: 16px;
+}
+.col-0{
+    width: 10%;
+    float: left;
 }
 .col-1{
     color: #333;
