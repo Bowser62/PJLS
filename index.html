@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>Create An Account</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="scripts.js">
+    </script>
+</head>
+<body>
+    <div class="col-1">
+        <h2>Name</h2>
+        <input type="text" tabindex=1>
+        <h2>Email Address</h2>
+        <input id="email" type="email" tabindex=2>
+        <br><br>
+        <button onclick="progress()" tabindex=5>Create Account</button>
+    </div>
+    <div class="col-2">
+        <h2>Create Password</h2>
+        <input id="password" type="password" tabindex=3>
+        <h2>Confirm Password</h2>
+        <input id="passwordConf" type="password" tabindex=4>
+        <h5 id="errorMessage" class="error"></h5>
+    </div>
+</body>
+</html>
