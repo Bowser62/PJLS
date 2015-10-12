@@ -1,4 +1,4 @@
-level=1
+stage=1
 var regex = {
     email: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,6}$/,
     symbol: /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/,
@@ -20,24 +20,24 @@ function placeholders() {
 
 function progress() {
     placeholders()
-    switch (level) {
+    switch (stage) {
         case 1:
-            did=level1()
+            did=stage1()
             break
         case 2:
-            did=level2()
+            did=stage2()
             break
         case 3:
-            did=level3()
+            did=stage3()
             break
         case 4:
-            did=level4()
+            did=stage4()
             break
         case 5:
-            did=level5()
+            did=stage5()
             break
         case 6:
-            did=level6()
+            did=stage6()
             break
         case 7:
             end()
@@ -47,10 +47,10 @@ function progress() {
     }
 }
 
-function level1() {
+function stage1() {
     if (pass == passConf && regex.email.test(email) && pass != "") {
         errtype = "";
-        level = 2
+        stage = 2
         do_ret = 1
     } else if (pass != passConf){
         errtype = "Passwords Don't Match";
@@ -65,10 +65,10 @@ function level1() {
     error.innerHTML = errtype
     return do_ret
 }
-function level2() {
-    if (level1()) {
+function stage2() {
+    if (stage1()) {
         if (pass.length >= 8) {
-            level = 3
+            stage = 3
             errtype = ""
             do_ret = 1
         } else {
@@ -79,10 +79,10 @@ function level2() {
     error.innerHTML = errtype
     return do_ret
 }
-function level3() {
-    if (level2()) {
+function stage3() {
+    if (stage2()) {
         if (/[0-9]/.test(pass) && /[A-Z]/.test(pass)) {
-            level = 4
+            stage = 4
             errtype = ""
             do_ret = 1
         } else if (/[A-Z]/.test(pass)){
@@ -96,10 +96,10 @@ function level3() {
     error.innerHTML = errtype
     return do_ret
 }
-function level4() {
-    if (level3()) {
+function stage4() {
+    if (stage3()) {
         if (regex.symbol.test(pass)) {
-            level = 5
+            stage = 5
             errtype = ""
             do_ret = 1
         } else {
@@ -110,10 +110,10 @@ function level4() {
     error.innerHTML = errtype
     return do_ret
 }
-function level5() {
-    if (level4()) {
+function stage5() {
+    if (stage4()) {
         if (regex.alphabet.test(pass)) {
-            level = 6
+            stage = 6
             errtype = ""
             do_ret = 1
         } else {
@@ -124,10 +124,10 @@ function level5() {
     error.innerHTML = errtype
     return do_ret
 }
-function level6() {
-    if (level5()) {
+function stage6() {
+    if (stage5()) {
         if (regex.fiveten.test(pass)) {
-            level = 7
+            stage = 7
             errtype = ""
             do_ret = 7
         } else {
