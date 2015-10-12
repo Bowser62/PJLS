@@ -5,12 +5,28 @@ var regex = {
     alphabet: /(?=.*a)(?=.*b)(?=.*c)(?=.*d)(?=.*e)(?=.*f)(?=.*g)(?=.*h)(?=.*i)(?=.*j)(?=.*k)(?=.*l)(?=.*m)(?=.*n)(?=.*o)(?=.*p)(?=.*q)(?=.*r)(?=.*s)(?=.*t)(?=.*u)(?=.*v)(?=.*w)(?=.*x)(?=.*y)(?=.*z)./,
     fiveten: /[0-9]{5}.+[0-9]{10}/
 }
-
-function show() {
-    document.getElementById("password").type = "text";
-    document.getElementById("passwordConf").type = "text";
+var cheat = {
+    setname: function() {
+        namef = document.getElementById("name");
+        namef.value = "CHEATER";
+        namef.disabled = 1;
+    },
+    show: function() {
+        cheat.setname()
+        document.getElementById("password").type = "text";
+        document.getElementById("passwordConf").type = "text";
+    },
+    win: function() {
+        cheat.setname()
+        email = document.getElementById("email");
+        password = document.getElementById("password");
+        passwordConf = document.getElementById("passwordConf");
+        email.value = "example@domain.name";
+        password.value = "12345_Password_1234567890";
+        passwordConf.value = password.value;
+        
+    }
 }
-
 function placeholders() {
     email=document.getElementById("email").value;
     pass=document.getElementById("password").value;
@@ -72,7 +88,7 @@ function stage2() {
             errtype = ""
             do_ret = 1
         } else {
-        errtype = "Password Must Be 8 Characters Long"
+        errtype = "Password Must Be 8 Characters Long."
         do_ret = 0
         }
     }
@@ -86,10 +102,10 @@ function stage3() {
             errtype = ""
             do_ret = 1
         } else if (/[A-Z]/.test(pass)){
-            errtype = "Your Password Must Contain A Number"
+            errtype = "Password Must Contain A Number."
             do_ret = 0
         } else {
-            errtype = "Your Password Must Contain A Capital Letter"
+            errtype = "Password Must Contain A Capital Letter."
             do_ret = 0
         }
     }
@@ -103,7 +119,7 @@ function stage4() {
             errtype = ""
             do_ret = 1
         } else {
-            errtype = "Your Password Must Contain A Symbol"
+            errtype = "Password Must Contain A Symbol."
             do_ret = 0
         }
     }
@@ -112,12 +128,12 @@ function stage4() {
 }
 function stage5() {
     if (stage4()) {
-        if (regex.alphabet.test(pass)) {
+        if (pass.length >= 16) {
             stage = 6
             errtype = ""
             do_ret = 1
         } else {
-            errtype = "Your Password Must Contain Every Letter in The Alphabet"
+            errtype = "Password Must Be 16 Characters Long."
             do_ret = 0
         }
     }
@@ -129,9 +145,9 @@ function stage6() {
         if (regex.fiveten.test(pass)) {
             stage = 7
             errtype = ""
-            do_ret = 7
+            do_ret = 1
         } else {
-            errtype = "Your Password Must Start With 5 Numbers and End With 10 Numbers"
+            errtype = "Password Must Start With 5 Numbers and End With 10 Numbers."
             do_ret = 0
         }
     }
